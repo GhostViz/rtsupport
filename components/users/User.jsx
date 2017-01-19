@@ -1,30 +1,17 @@
 import React, {Component} from 'react';
 
-class UserForm extends Component{
-  onSubmit(e){
-    e.preventDefault();
-    const node = this.refs.userName;
-    const userName = node.value;
-    this.props.setUserName(userName);
-    node.value = '';
-  }
+class User extends Component{
   render(){
     return (
-      <form onSubmit={this.onSubmit.bind(this)}>
-        <div className='form-group'>
-          <input 
-            ref='userName'
-            type='text' 
-            className='form-control' 
-            placeholder='Set Your Name...' />
-        </div>
-      </form>
+      <li>
+        {this.props.user.name}
+      </li>
     )
   }
 }
 
-UserForm.propTypes = {
-  setUserName: React.PropTypes.func.isRequired
+User.propTypes = {
+  user: React.PropTypes.object.isRequired
 }
 
-export default UserForm
+export default User
